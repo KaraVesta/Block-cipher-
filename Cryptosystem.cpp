@@ -18,12 +18,12 @@ uint32_t keys_32[2];
 
 uint32_t read_key(string parametr)
 {
-    string name="/Users/lyudmila/Downloads/Var10/key"+parametr+".in";
+    string name="key"+parametr+".in";
 }
 
 uint32_t read_key()
 {
-    string name="/Users/lyudmila/CLionProjects/КМЗИ2v.10/Var10/example_key.in";
+    string name="example_key.in";
     std::ifstream in(name);
     uint32_t result=0;
     char input[4]={0};
@@ -42,7 +42,7 @@ uint32_t read_key()
 
 void write_in_file(uint32_t& block)
 {
-    string name="/Users/lyudmila/CLionProjects/КМЗИ2v.10/out/example1.out";
+    string name="example1.out";
     ofstream out;
     out.open(name);
     char output[4]={0};
@@ -228,7 +228,7 @@ void cipher_body()
     {
         key_scheduler(read_key());
     }
-    string name="/Users/lyudmila/CLionProjects/КМЗИ2v.10/Var10/example1.in";
+    string name="example1.in";
     std::ifstream in(name);
     if (!in.is_open()) {
         cout << "File can not be opened!" << endl;
@@ -288,34 +288,5 @@ void cipher_body()
 int main() {
     std::cout << "Hello, World!" << std::endl;
     cipher_body();
-    uint16_t t=0x166F<<1;
-//    cout<<cycle_roll_left(8,15)<<endl;
-//    cout<<cycle_roll_right(8,1)<<endl;
-    //std::string::size_type sz;
-    //uint32_t check= stoi("qwer",&sz);
-    uint32_t check=0;
-    string l="qwer", line;
-    std::ifstream in("/Users/lyudmila/Downloads/Var10/key1.in");
-    if (in.is_open())
-    {
-        while (getline(in, line))
-        {
-            std::cout << line << std::endl;
-        }
-    }
-    in.close();     // закрываем файл
-    cout<<line<<endl;
-    check<<=4;
-    for (int i=0; i<4; i++)
-    {
-        check+=(uint8_t)line[i];
-        uint8_t s=(uint8_t)line[i];
-        cout<<"i="<<s<<endl;
-        if (i<3)
-        check<<=8;
-    }
-    cout<<hex<<check<<endl;
-    cout<<hex<<t<<endl;
-    //get_key("1",1);
     return 0;
 }
